@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        video {
+            display: block;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Successful!</h1>
+    <p>Your video has been uploaded successfully:</p>
+
+    <!-- Video Player -->
+    <video id="uploadedVideo" width="640" height="360" controls autoplay>
+        <source src="{{ url_for('static', filename='uploads/' + video_filename) }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div>
+        <p>Total videos uploaded: {{ video_count }}</p>  <!-- Display the count of uploaded videos -->
+    </div>
+
+    <div class="button-container">
+        <a href="/" class="button">Home</a> <!-- Home button to go back to the main page -->
+        <a href="/upload" class="button">Upload Another Video</a> <!-- Link to upload another video -->
+    </div>
+
+    <script>
+        const video = document.getElementById('uploadedVideo');
+        video.muted = false;  // Ensure it's unmuted
+    </script>
+</body>
+</html>

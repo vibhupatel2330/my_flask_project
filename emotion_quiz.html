@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emotion Quiz</title>
+</head>
+<body>
+    <h1>Emotion Quiz</h1>
+    <p>Answer the following questions to find out your current mood!</p>
+
+    <!-- Simple quiz form -->
+    <form action="{{ url_for('process_emotion_quiz') }}" method="post">
+        <label>How are you feeling right now?</label><br>
+        <input type="radio" name="emotion" value="happy"> Happy<br>
+        <input type="radio" name="emotion" value="sad"> Sad<br>
+        <input type="radio" name="emotion" value="angry"> Angry<br>
+        <input type="radio" name="emotion" value="excited"> Excited<br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
